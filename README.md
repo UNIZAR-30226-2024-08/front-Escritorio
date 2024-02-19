@@ -1,2 +1,2 @@
 # front-Escritorio
-Repositorio con el back-end de la aplicación.
+Repositorio con el front-end de la aplicación de Escritorio.
