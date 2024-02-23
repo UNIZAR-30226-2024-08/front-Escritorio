@@ -8,7 +8,8 @@ func _ready():
 	for i in range(4):
 		for j in range(13):
 			var newCard = card.instantiate()
-			newCard.new(j, types[i])
+			newCard.position = Vector2(i * 200 + 300, j * 50 + 50)
+			newCard.new(j, types[i], false, randi()%8)
 			add_child(newCard)
 
 func dealCard() -> Node:
