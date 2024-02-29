@@ -1,14 +1,15 @@
 extends Node
 class_name Card
 
-@export var value : int
-@export var type : String
-@export var facing_up : bool
-@export var back : int
-@export var front_sprite : Resource
-@export var back_sprite : Resource
+@export var value : int				# The number of the card
+@export var type : String			# The type of the card (Clubs, Diamonds, Hearts or Spades)
+@export var facing_up : bool		# If the card is facing up
+@export var back : int				# Number of the sprite of the back
+@export var front_sprite : Resource	# Sprite to be rendered when facing up
+@export var back_sprite : Resource	# Sprite to be rendered when facing down
 
 @onready var sprite : Sprite2D = $Sprite2D
+@onready var collision : CollisionShape2D = $Area2D/CollisionShape2D
 
 func new(newValue : int, newType : String, newFacingUp : bool, newBack : int) -> void:
 	value = newValue
@@ -23,7 +24,7 @@ func _ready():
 
 func set_facing_up(newFacingUp : bool = facing_up):
 	facing_up = newFacingUp
-	if (facing_up):
+	if (newFacingUp):
 		sprite.texture = front_sprite
 	else:
 		sprite.texture = back_sprite
@@ -37,3 +38,18 @@ func __value_to_string(val : int) -> String:
 	if number.length() == 1:
 		number = "0" + number
 	return number
+
+
+func _on_area_2d_mouse_entered():
+	if facing_up:
+		sprite.scale = Vector2(1.5, 1.5)
+		collision.scale = Vector2(1.5, 1.5)
+		sprite.z_index = 1
+		collision.z_index = 1
+
+
+func _on_area_2d_mouse_exited():
+	sprite.scale = Vector2(1.0, 1.0)
+	collision.scale = Vector2(1.0, 1.0)
+	sprite.z_index = 0
+	collision.z_index = 0
