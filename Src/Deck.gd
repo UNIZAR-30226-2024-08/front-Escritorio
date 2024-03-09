@@ -3,9 +3,6 @@ extends Node
 const card = preload("res://Prefabs/Card.tscn")
 const types = ["Spade", "Heart", "Diamond", "Club"]
 
-func _ready():
-	reset()
-
 func deleteCards():
 	for n in get_children():
 		remove_child(n)

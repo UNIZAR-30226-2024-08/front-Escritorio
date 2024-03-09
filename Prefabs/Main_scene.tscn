@@ -11,6 +11,8 @@ script = ExtResource("1_san8q")
 [node name="Deck" type="Node2D" parent="."]
 script = ExtResource("4_d8l3d")
 
+[node name="Table" type="Node2D" parent="."]
+
 [node name="PlayerManager" type="Node2D" parent="."]
 script = ExtResource("3_jq311")
 
@@ -20,6 +22,38 @@ script = ExtResource("3_jq311")
 custom_minimum_size = Vector2(1280, 720)
 layout_mode = 3
 anchors_preset = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer2"]
+layout_mode = 2
+
+[node name="Turno" type="Label" parent="UI/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Holaaa"
+
+[node name="MaxApuesta" type="Label" parent="UI/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="ApuestaJugador1" type="Label" parent="UI/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="ApuestaJugador2" type="Label" parent="UI/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="ApuestaJugador3" type="Label" parent="UI/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="ApuestaJugador4" type="Label" parent="UI/MarginContainer2/VBoxContainer"]
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 layout_mode = 1

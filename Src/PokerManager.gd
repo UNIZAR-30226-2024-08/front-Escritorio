@@ -1,26 +1,73 @@
 extends Node
 # Controlador del juego de poker
 
-const MAX_TURN = 3
+const TURNO_INICIAL = 1
+const TURNO_FINAL = 4
+const AMOUNT_PLAYERS = 4
 
-var turn = 0
+var turno = 0
+var maxApuesta = 0
+var jugadas = [false, false, false, false]
+var apuestas = [0, 0, 0, 0]
 
-func reset():
+func _ready():
+	newGame()
+
+func newGame():
 	$Deck.reset()
-	$PlayerManager.instantiatePlayers()
+	initialTurn()
+	
+	$PlayerManager.instantiatePlayers(AMOUNT_PLAYERS)
+	
+	turno = 0
+	maxApuesta = 0
+	jugadas = [false, false, false, false]
+	var apuestas = [0, 0, 0, 0]
 
-# TODO: Igual hay que replantearse esto...
+# Se tienen que mostrar tres cartas en el turno 1
+func initialTurn():
+	for i in range(3):
+		showNewCard()
+
+# Se muestra solo una carta más a partir del turno 1
+func showNewCard():
+	var card = $Deck.deal_card()
+	$Table.add_child(card)
+
+func checkNewTurn():
+	for i in range(AMOUNT_PLAYERS): 
+		if jugadas[i] == false:
+			return
+	
+	jugadas = [false, false, false, false]
+	turno = turno+1
+	
+	if turno == TURNO_INICIAL:
+		initialTurn()
+	elif turno <= TURNO_FINAL-1:
+		showNewCard()
+	elif turno == TURNO_FINAL:
+		# TODO: Añadir comportamiento para terminar partida 
+		# (Mostrar cartas de rivales y quien ha ganado)
+		pass 
+	
+
 # Función que comunica al Manager que jugada ha realizado el jugador
-func _on_player_jugada(tipo, valor):
-	if tipo == "Pasar":
-		pass
-	elif tipo == "Apostar":
-		pass
-	elif tipo == "Subir":
-		pass
-	elif tipo == "Igualar":
-		pass
+func _on_player_jugada(tipo, valor, jugador):
+	
+	if jugadas[jugador]: # Caso base, solo se realiza una jugada por turno
+		return
+	
+	if tipo == "Apostar" or tipo == "Subir": # Primero en jugar 
+		apuestas[jugador] = valor
+		maxApuesta = valor
+		jugadas = [false, false, false, false]
 	elif tipo == "Retirarse":
+		# Comunicar que un jugador se ha ido de la partida
 		pass
-	else:
-		print("ERROR PRODUCIDO: JUGADA NO VALIDA")
+	# TODO: Añadir más funcionalidades para otras jugadas
+	# Comunicar a resto de jugadores que un jugador se ha ido, o que jugada ha realizado
+	
+	jugadas[jugador] = true
+	checkNewTurn()
+	

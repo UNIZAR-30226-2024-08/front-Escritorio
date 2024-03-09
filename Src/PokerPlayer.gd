@@ -1,6 +1,6 @@
 extends Node
 
-signal jugada(tipo, valor)
+signal jugada(tipo, valor, jugador)
 
 var deck
 
@@ -23,7 +23,9 @@ func getInitialHand() -> void:
 ## Jugadas posibles ##
 ######################
 
-# TODO: Igual hay que replantearse esto...
+# TODO: Añadir funcionalidad para indicar cuanto dinero apostar
+# También capar dicho dinero a cantidad minima para apostar y 
+# cantidad máxima de monedas del usuario
 func _on_apostar_pressed():
 	jugada.emit("Apostar")
 
