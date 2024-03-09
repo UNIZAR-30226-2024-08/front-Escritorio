@@ -1,17 +1,73 @@
 [gd_scene load_steps=5 format=3 uid="uid://cb0a1e2dkmvt3"]
 
-[ext_resource type="Script" path="res://Src/GameManager.gd" id="1_san8q"]
-[ext_resource type="PackedScene" uid="uid://cnxxc6yeynubl" path="res://Prefabs/Card.tscn" id="2_v3db0"]
-[ext_resource type="Script" path="res://Src/Holder.gd" id="3_vetc5"]
+[ext_resource type="Script" path="res://Src/PokerManager.gd" id="1_san8q"]
+[ext_resource type="PackedScene" uid="uid://bosb60as5v73p" path="res://Prefabs/PokerPlayer.tscn" id="3_4xg5m"]
+[ext_resource type="Script" path="res://Src/PlayersManager.gd" id="3_jq311"]
 [ext_resource type="Script" path="res://Src/Deck.gd" id="4_d8l3d"]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_san8q")
 
-[node name="Card" parent="." instance=ExtResource("2_v3db0")]
-
-[node name="Holder" type="Node2D" parent="."]
-script = ExtResource("3_vetc5")
-
 [node name="Deck" type="Node2D" parent="."]
 script = ExtResource("4_d8l3d")
+
+[node name="PlayerManager" type="Node2D" parent="."]
+script = ExtResource("3_jq311")
+
+[node name="Player" parent="PlayerManager" instance=ExtResource("3_4xg5m")]
+
+[node name="UI" type="Control" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -110.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Apostar" type="Button" parent="UI/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "APOSTAR"
+
+[node name="Pasar" type="Button" parent="UI/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "PASAR"
+
+[node name="Subir" type="Button" parent="UI/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "SUBIR"
+
+[node name="Igualar" type="Button" parent="UI/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "IGUALAR"
+
+[node name="Retirarse" type="Button" parent="UI/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "RETIRARSE"
+
+[connection signal="jugada" from="PlayerManager/Player" to="." method="_on_player_jugada"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Apostar" to="PlayerManager/Player" method="_on_apostar_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Pasar" to="PlayerManager/Player" method="_on_pasar_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Subir" to="PlayerManager/Player" method="_on_subir_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Igualar" to="PlayerManager/Player" method="_on_igualar_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Retirarse" to="PlayerManager/Player" method="_on_retirarse_pressed"]

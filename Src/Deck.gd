@@ -1,11 +1,18 @@
 extends Node
 
-var card = preload("res://Prefabs/Card.tscn")
-
-var types = ["Spade", "Heart", "Diamond", "Club"]
+const card = preload("res://Prefabs/Card.tscn")
+const types = ["Spade", "Heart", "Diamond", "Club"]
 
 func _ready():
-	self.position = Vector2(40, 40)
+	reset()
+
+func deleteCards():
+	for n in get_children():
+		remove_child(n)
+		n.queue_free()
+
+func reset():
+	deleteCards()
 	for i in range(4):
 		for j in range(13):
 			var newCard = card.instantiate()
