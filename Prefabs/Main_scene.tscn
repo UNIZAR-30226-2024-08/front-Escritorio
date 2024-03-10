@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cb0a1e2dkmvt3"]
+[gd_scene load_steps=6 format=3 uid="uid://cb0a1e2dkmvt3"]
 
 [ext_resource type="Script" path="res://Src/PokerManager.gd" id="1_san8q"]
 [ext_resource type="PackedScene" uid="uid://bosb60as5v73p" path="res://Prefabs/PokerPlayer.tscn" id="3_4xg5m"]
 [ext_resource type="Script" path="res://Src/PlayersManager.gd" id="3_jq311"]
 [ext_resource type="Script" path="res://Src/Deck.gd" id="4_d8l3d"]
+[ext_resource type="Script" path="res://Src/UI.gd" id="5_vt4p1"]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_san8q")
@@ -18,10 +19,16 @@ script = ExtResource("3_jq311")
 
 [node name="Player" parent="PlayerManager" instance=ExtResource("3_4xg5m")]
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." node_paths=PackedStringArray("apostar", "pasar", "subir", "igualar", "retirarse")]
 custom_minimum_size = Vector2(1280, 720)
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("5_vt4p1")
+apostar = NodePath("MarginContainer/HBoxContainer/Apostar")
+pasar = NodePath("MarginContainer/HBoxContainer/Pasar")
+subir = NodePath("MarginContainer/HBoxContainer/Subir")
+igualar = NodePath("MarginContainer/HBoxContainer/Igualar")
+retirarse = NodePath("MarginContainer/HBoxContainer/Retirarse")
 
 [node name="MarginContainer2" type="MarginContainer" parent="UI"]
 custom_minimum_size = Vector2(100, 200)
@@ -38,22 +45,27 @@ layout_mode = 2
 
 [node name="Turno" type="Label" parent="UI/MarginContainer2/VBoxContainer"]
 layout_mode = 2
-text = "Holaaa"
+text = "Turno: 0"
 
 [node name="MaxApuesta" type="Label" parent="UI/MarginContainer2/VBoxContainer"]
 layout_mode = 2
+text = "MaxApuesta: 0"
 
 [node name="ApuestaJugador1" type="Label" parent="UI/MarginContainer2/VBoxContainer"]
 layout_mode = 2
+text = "Apuesta Jugador 1: "
 
 [node name="ApuestaJugador2" type="Label" parent="UI/MarginContainer2/VBoxContainer"]
 layout_mode = 2
+text = "Apuesta Jugador 1: "
 
 [node name="ApuestaJugador3" type="Label" parent="UI/MarginContainer2/VBoxContainer"]
 layout_mode = 2
+text = "Apuesta Jugador 1: "
 
 [node name="ApuestaJugador4" type="Label" parent="UI/MarginContainer2/VBoxContainer"]
 layout_mode = 2
+text = "Apuesta Jugador 1: "
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 layout_mode = 1

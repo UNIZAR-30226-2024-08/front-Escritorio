@@ -7,6 +7,7 @@ const AMOUNT_PLAYERS = 4
 
 var turno = 0
 var maxApuesta = 0
+var lastMaxApuesta = 0
 var jugadas = [false, false, false, false]
 var apuestas = [0, 0, 0, 0]
 
@@ -18,6 +19,9 @@ func newGame():
 	initialTurn()
 	
 	$PlayerManager.instantiatePlayers(AMOUNT_PLAYERS)
+	
+	$UI.enableButtons(["Pasar", "Igualar", "Subir"], false)
+	$UI.enableButtons(["Apostar", "Retirarse"], true)
 	
 	turno = 0
 	maxApuesta = 0
@@ -40,7 +44,11 @@ func checkNewTurn():
 			return
 	
 	jugadas = [false, false, false, false]
+	lastMaxApuesta = maxApuesta
 	turno = turno+1
+	
+	$UI.enableButtons(["Pasar", "Apostar", "Retirarse"], true)
+	$UI.enableButtons(["Igualar", "Subir"], false)
 	
 	if turno == TURNO_INICIAL:
 		initialTurn()
@@ -59,6 +67,8 @@ func _on_player_jugada(tipo, valor, jugador):
 		return
 	
 	if tipo == "Apostar" or tipo == "Subir": # Primero en jugar 
+		$UI.enableButtons(["Apostar"], false)
+		$UI.enableButtons(["Subir"], false)
 		apuestas[jugador] = valor
 		maxApuesta = valor
 		jugadas = [false, false, false, false]
