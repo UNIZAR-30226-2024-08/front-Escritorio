@@ -35,7 +35,7 @@ custom_minimum_size = Vector2(100, 200)
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
@@ -57,15 +57,15 @@ text = "Apuesta Jugador 1: "
 
 [node name="ApuestaJugador2" type="Label" parent="UI/MarginContainer2/VBoxContainer"]
 layout_mode = 2
-text = "Apuesta Jugador 1: "
+text = "Apuesta Jugador 2: "
 
 [node name="ApuestaJugador3" type="Label" parent="UI/MarginContainer2/VBoxContainer"]
 layout_mode = 2
-text = "Apuesta Jugador 1: "
+text = "Apuesta Jugador 3: "
 
 [node name="ApuestaJugador4" type="Label" parent="UI/MarginContainer2/VBoxContainer"]
 layout_mode = 2
-text = "Apuesta Jugador 1: "
+text = "Apuesta Jugador 4: "
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 layout_mode = 1

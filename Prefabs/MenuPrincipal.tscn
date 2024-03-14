@@ -1,0 +1,235 @@
+[gd_scene format=3 uid="uid://c071kvj86yxwv"]
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "CASINO"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="INICIAR SESION" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 250
+theme_override_constants/margin_bottom = 75
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/INICIAR SESION"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/INICIAR SESION/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/INICIAR SESION/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/INICIAR SESION/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LABELS" type="VBoxContainer" parent="MarginContainer/VBoxContainer/INICIAR SESION/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/INICIAR SESION/Panel/MarginContainer/VBoxContainer/HBoxContainer/LABELS"]
+layout_mode = 2
+text = "Usuario: "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/INICIAR SESION/Panel/MarginContainer/VBoxContainer/HBoxContainer/LABELS"]
+layout_mode = 2
+text = "Contraseña:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/INICIAR SESION/Panel/MarginContainer/VBoxContainer/HBoxContainer/LABELS"]
+layout_mode = 2
+text = "Guardar usuario:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CONTAINERS" type="VBoxContainer" parent="MarginContainer/VBoxContainer/INICIAR SESION/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/INICIAR SESION/Panel/MarginContainer/VBoxContainer/HBoxContainer/CONTAINERS"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit2" type="LineEdit" parent="MarginContainer/VBoxContainer/INICIAR SESION/Panel/MarginContainer/VBoxContainer/HBoxContainer/CONTAINERS"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/INICIAR SESION/Panel/MarginContainer/VBoxContainer/HBoxContainer/CONTAINERS"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/INICIAR SESION/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "INICIAR SESIÓN"
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/INICIAR SESION/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "REGISTRARSE"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/INICIAR SESION/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "INICIAR SESIÓN CON GOOGLE"
+
+[node name="REGISTRARSE" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 250
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/REGISTRARSE"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LABELS" type="VBoxContainer" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer/HBoxContainer/LABELS"]
+layout_mode = 2
+text = "Usuario: "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer/HBoxContainer/LABELS"]
+layout_mode = 2
+text = "Correo electrónico:"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer/HBoxContainer/LABELS"]
+layout_mode = 2
+text = "Contraseña:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer/HBoxContainer/LABELS"]
+layout_mode = 2
+text = "Confirmar contraseña:"
+horizontal_alignment = 2
+
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer/HBoxContainer/LABELS"]
+layout_mode = 2
+text = "Confirmo que tengo 18 años:"
+horizontal_alignment = 2
+
+[node name="Label6" type="Label" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer/HBoxContainer/LABELS"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Al registrarme confirmo que he leido los terminos y las pollas:"
+autowrap_mode = 3
+
+[node name="CONTAINERS" type="VBoxContainer" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer/HBoxContainer/CONTAINERS"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit2" type="LineEdit" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer/HBoxContainer/CONTAINERS"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit3" type="LineEdit" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer/HBoxContainer/CONTAINERS"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit4" type="LineEdit" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer/HBoxContainer/CONTAINERS"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer/HBoxContainer/CONTAINERS"]
+layout_mode = 2
+
+[node name="Container" type="Container" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer/HBoxContainer/CONTAINERS"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="CheckBox2" type="CheckBox" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer/HBoxContainer/CONTAINERS"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/REGISTRARSE/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "REGISTRARSE"
